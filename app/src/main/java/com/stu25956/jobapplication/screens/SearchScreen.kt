@@ -13,7 +13,6 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.*
-import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -28,11 +27,11 @@ import com.stu25956.jobapplication.viewmodel.DecoratorViewModel
 @Composable
 fun SearchScreen(viewModel: DecoratorViewModel, onSelectDecorator: (Decorator) -> Unit) {
     // State variables to hold user input and button click states
-    var location by rememberSaveable { mutableStateOf("") }
-    var dateFrom by rememberSaveable { mutableStateOf("") }
-    var dateTo by rememberSaveable { mutableStateOf("") }
-    var isSearchClicked by rememberSaveable { mutableStateOf(false) }
-    var isAllDecoratorsClicked by rememberSaveable { mutableStateOf(false) }
+    var location by remember { mutableStateOf("") }
+    var dateFrom by remember { mutableStateOf("") }
+    var dateTo by remember { mutableStateOf("") }
+    var isSearchClicked by remember { mutableStateOf(false) }
+    var isAllDecoratorsClicked by remember { mutableStateOf(false) }
 
     // Collecting available decorators from the ViewModel
     val availableDecorators by viewModel.availableDecorators.collectAsState()
